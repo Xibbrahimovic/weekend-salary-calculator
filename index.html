@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekend Salary Calculator</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script src="client.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="myHead">Weekend Salary Calculator</h1>
+    <input id="firstNameInput"class= "inputField" placeholder="First Name"></input>
+    <input id="lastNameInput"class= "inputField" placeholder="Last Name"></input>
+    <input id="idInput"class= "inputField" placeholder="ID Number"></input>
+    <input id="jobTitleInput"class= "inputField" placeholder="Job Title"></input>
+    <input id="salaryInput"class= "inputField" placeholder="Annual Salary"></input>
+    <button id="addEmployee">Submit</button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>ID Number</th>
+                <th>Job Title</th>
+                <th>Annual Salary</th>
+            </tr>
+        </thead>
+        <tbody id = "bodyTarget">
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><h3 class="pushRight">MONTHLY TOTAL:<span class="totalMothly"></span></h3></td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
