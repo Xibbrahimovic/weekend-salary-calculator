@@ -6,3 +6,8 @@
 .pushRight{
     text-align: left;
 }
+
+.blankRow{
+    height: 20 px;
+    background-color: chocolate;
+}

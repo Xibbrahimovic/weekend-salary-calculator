@@ -9,44 +9,45 @@ function handleStart() {
 
   //click listeners
   $(`#addEmployee`).on(`click`, addEmployee);
-  $(`#bodyTarget`).on(`click`, `#removeButton`,removeEmployee);
+  $(`#bodyTarget`).on(`click`, `#removeButton`, removeEmployee);
   //clear inputs
 }
 
-function addEmployee(){
+function addEmployee() {
   //get information from inputs
-  console.log('add employee button working!');
+  console.log("add employee button working!");
 
   //create object of employee to store employee information
   const employee = {
-    firstName: $(`#firstNameInput`).val(),//assign values of inputs to individual fields
+    firstName: $(`#firstNameInput`).val(), //assign values of inputs to individual fields
     lastName: $(`#lastNameInput`).val(),
-    id:$(`#idInput`).val(),
-    jobTitle:$(`#jobTitleInput`).val(),
-    annualSalary:$(`#salaryInput`).val(),
-  }
+    id: $(`#idInput`).val(),
+    jobTitle: $(`#jobTitleInput`).val(),
+    annualSalary: parseFloat($(`#salaryInput`).val(),100)
+  };
 
-//test employee storage -complete
+  //test employee storage -complete
   console.log(employee);
 
-  employeeList.push(employee);//push object into array
-   //store in array
+  employeeList.push(employee); //push object into array
+  //store in array
 
-  pushList();//call function to push array onto dom
+  updateTable(); //call function to push array onto dom
 }
 
-function removeEmployee(){
-  $(this).parent().parent().remove();//
+function removeEmployee() {
+  $(this).parent().parent().remove(); //
 }
 
-function pushList(){  //put info on table into dom
-  $(`#bodyTarget`).empty(); 
+function updateTable() {
+  //put info on table into dom
+  $(`#bodyTarget`).empty();
   //clear the dom before iterating over array//
   $(`.totalMonthly`).empty();
-
-  for(let employee of employeeList){
-    const employeeSalary = $(employee.annualSalary);
-
+  let totalMonthly = 0; //create running total
+  for (let employee of employeeList) {
+    const employeeMonthlySalary = ((employee.annualSalary)/12); //assign each salary to variable
+    totalMonthly += employeeMonthlySalary; //add value to running total
     const employeeInfo = $(
       `<tr>
         <td>${employee.firstName}</td>
@@ -56,13 +57,10 @@ function pushList(){  //put info on table into dom
         <td>${employee.annualSalary}</td>
         <td><button id="removeButton" class="button">Remove</button></td>
       </tr>
-      `);
-      $(`#bodyTarget`).append(employeeInfo);//add object to each row during loop
+      `
+    );
+    $(`#bodyTarget`).append(employeeInfo); //add object to each row during loop
+    // alert("Hello! Test");
   }
+  $(`.totalMonthly`).text(totalMonthly); //replace value to class
 }
-
-
-
-
-
-
