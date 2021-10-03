@@ -23,7 +23,7 @@ function addEmployee() {
     lastName: $(`#lastNameInput`).val(),
     id: $(`#idInput`).val(),
     jobTitle: $(`#jobTitleInput`).val(),
-    annualSalary: parseFloat($(`#salaryInput`).val(),100)
+    annualSalary: $(`#salaryInput`).val()
   };
 
   //test employee storage -complete
@@ -36,6 +36,8 @@ function addEmployee() {
 }
 
 function removeEmployee() {
+  let indexBar = $(this).closest('tr').index();
+  employeeList.splice(indexBar, 1);
   $(this).parent().parent().remove(); //
 }
 
@@ -54,7 +56,7 @@ function updateTable() {
         <td>${employee.lastName}</td>
         <td>${employee.id}</td>
         <td>${employee.jobTitle}</td>
-        <td>${employee.annualSalary}</td>
+        <td>${formatCurrency(employee.annualSalary)}</td>
         <td><button id="removeButton" class="button">Remove</button></td>
       </tr>
       `
@@ -62,5 +64,14 @@ function updateTable() {
     $(`#bodyTarget`).append(employeeInfo); //add object to each row during loop
     // alert("Hello! Test");
   }
-  $(`.totalMonthly`).text(totalMonthly); //replace value to class
+  $(`.totalMonthly`).text(formatCurrency(totalMonthly)); //replace value to class
+}
+
+
+function formatCurrency(number) {
+  return new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 2,
+  }).format(number);
 }

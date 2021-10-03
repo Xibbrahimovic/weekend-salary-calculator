@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="inputFields">
     <h1 class="myHead">Weekend Salary Calculator</h1>
     <input id="firstNameInput"class= "inputField" placeholder="First Name"></input>
     <input id="lastNameInput"class= "inputField" placeholder="Last Name"></input>
@@ -18,8 +19,9 @@
     <input id="jobTitleInput"class= "inputField" placeholder="Job Title"></input>
     <input id="salaryInput"class= "inputField" placeholder="Annual Salary"></input>
     <button id="addEmployee">Submit</button>
+    </div>
 
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>First Name</th>
@@ -33,10 +35,10 @@
         </tbody>
         <tfoot>
             <tr class="blankRow">
-                <td colspan="5"></td>
+                <td colspan="6"></td>
             </tr>
         </tfoot>
     </table>
-    <p class="pushRight">MONTHLY TOTAL: $<span class="totalMonthly"></span></p>
+    <p class="total">MONTHLY TOTAL:<span class="totalMonthly"></span></p>
 </body>
 </html>
