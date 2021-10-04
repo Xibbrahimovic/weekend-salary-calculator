@@ -11,24 +11,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="inputFields">
+    <div class="weekendSalaryCalculator">
     <h1 class="myHead">Weekend Salary Calculator</h1>
     <input id="firstNameInput"class= "inputField" placeholder="First Name"></input>
     <input id="lastNameInput"class= "inputField" placeholder="Last Name"></input>
     <input id="idInput"class= "inputField" placeholder="ID Number"></input>
     <input id="jobTitleInput"class= "inputField" placeholder="Job Title"></input>
     <input id="salaryInput"class= "inputField" placeholder="Annual Salary"></input>
-    <button id="addEmployee">Submit</button>
-    </div>
+    <button id="addEmployee" class="submitButton">Submit</button>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>ID Number</th>
-                <th>Job Title</th>
-                <th>Annual Salary</th>
+                <th class="columnHeaders">First Name</th>
+                <th class="columnHeaders">Last Name</th>
+                <th class="columnHeaders">ID Number</th>
+                <th class="columnHeaders">Job Title</th>
+                <th class="columnHeaders">Annual Salary</th>
             </tr>
         </thead>
         <tbody id = "bodyTarget">

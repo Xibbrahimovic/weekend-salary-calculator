@@ -1,8 +1,14 @@
 .myHead{
-    background-color: grey;
+    background-color: teal;
     text-align: center;
 }
-.inputFields{
+.weekendSalaryCalculator{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inputField{
+    font-style: italic;
     margin-left: auto;
     margin-right: auto;
 }
@@ -10,6 +16,7 @@
 .total{
     text-align: right;
     margin-right: 20px;
+    font-weight: bolder;
 }
 
 .blankRow{
@@ -21,4 +28,20 @@
     border: 1px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.columnHeaders{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button{
+   
+}
+
+button:hover{
+    background-color: rgb(74, 202, 160);
+}
+
+tr:hover{
+    background-color: rgb(98, 155, 155);
 }

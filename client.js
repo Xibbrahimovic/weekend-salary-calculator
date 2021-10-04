@@ -23,7 +23,7 @@ function addEmployee() {
     lastName: $(`#lastNameInput`).val(),
     id: $(`#idInput`).val(),
     jobTitle: $(`#jobTitleInput`).val(),
-    annualSalary: $(`#salaryInput`).val()
+    annualSalary: $(`#salaryInput`).val(),
   };
 
   //test employee storage -complete
@@ -32,13 +32,20 @@ function addEmployee() {
   employeeList.push(employee); //push object into array
   //store in array
 
+  $(`#firstNameInput`).val(""); //assign values of inputs to individual fields
+  $(`#lastNameInput`).val("");
+  $(`#idInput`).val("");
+  $(`#jobTitleInput`).val("");
+  $(`#salaryInput`).val("");
+
   updateTable(); //call function to push array onto dom
 }
 
 function removeEmployee() {
-  let indexBar = $(this).closest('tr').index();
+  let indexBar = $(this).closest("tr").index();
   employeeList.splice(indexBar, 1);
   $(this).parent().parent().remove(); //
+  updateTable();
 }
 
 function updateTable() {
@@ -48,7 +55,7 @@ function updateTable() {
   $(`.totalMonthly`).empty();
   let totalMonthly = 0; //create running total
   for (let employee of employeeList) {
-    const employeeMonthlySalary = ((employee.annualSalary)/12); //assign each salary to variable
+    const employeeMonthlySalary = employee.annualSalary / 12; //assign each salary to variable
     totalMonthly += employeeMonthlySalary; //add value to running total
     const employeeInfo = $(
       `<tr>
@@ -62,16 +69,14 @@ function updateTable() {
       `
     );
     $(`#bodyTarget`).append(employeeInfo); //add object to each row during loop
-    // alert("Hello! Test");
   }
   $(`.totalMonthly`).text(formatCurrency(totalMonthly)); //replace value to class
 }
 
-
 function formatCurrency(number) {
-  return new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  maximumFractionDigits: 2,
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 2,
   }).format(number);
 }
